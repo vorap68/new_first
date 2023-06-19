@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OpenServer/domains/new_first/resources/views/form.blade.php</file>
             <file>file:/D:/OpenServer/domains/new_first/app/Models/Order.php</file>
             <file>file:/D:/OpenServer/domains/new_first/app/Http/Controllers/OrderController.php</file>
-            <file>file:/D:/OpenServer/domains/new_first/routes/web.php</file>
-            <file>file:/D:/OpenServer/domains/new_first/resources/views/layouts/app.blade.php</file>
+            <file>file:/D:/OpenServer/domains/new_first/resources/views/order/form.blade.php</file>
+            <file>file:/D:/OpenServer/domains/new_first/resources/views/order/show.blade.php</file>
             <file>file:/D:/OpenServer/domains/new_first/app/Http/Middleware/WhoIsRole.php</file>
+            <file>file:/D:/OpenServer/domains/new_first/app/Services/OrderService.php</file>
         </group>
     </open-files>
 </project-private>

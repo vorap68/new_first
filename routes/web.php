@@ -23,5 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
         ->middleware('role');
 
 Route::resource('order', 'App\Http\Controllers\OrderController');
+Route::get('manager/index','App\Http\Controllers\ManagerController@index')->name('manager.index');
+Route::post('manager/active/{order}','App\Http\Controllers\ManagerController@active')->name('manager.active');
 
 

@@ -11,43 +11,42 @@ use App\Http\Requests\OrderRequest;
 
 class OrderController extends Controller {
 
-    
-       /**
-     * Вывод списка всех заказов авторизированого пользователя.
+    /**
+     * Вывод списка всех заявок авторизированого пользователя.
      * 
      * @var array $orders
      * $var $user object авторизированый пользователь
-     * @return array список заказов и объект пользователь
+     * @return collection orders список заявок 
+     * @return object  пользователь
      */
     public function index() {
-         $user = Auth::user();
-     $orders = $user->orders;
-        return view('order.index', compact('orders','user'));
-        
+        $user = Auth::user();
+        $orders = $user->orders;
+        return view('order.index', compact('orders', 'user'));
     }
 
     /**
      *  Вывод формы для создания новой заявки.
      *
-     * @return объект пользователь
+     * @return object пользователь
      */
     public function create() {
         $user = Auth::user();
-        return view('order.form',compact('user'));
+        return view('order.form', compact('user'));
     }
 
     /**
      * Валидация вх данных.
      * Сохранение заявки с помощью класса OrderService
      * @var object $user авторизированый пользователь
-     * @param   $request данные формы
+     * @param  \Illuminate\Http\Request  $request
      * @return void
      */
     public function store(OrderRequest $request, OrderService $service) {
-     $user = Auth::user();
-        $service->store($request,$user);
-       return redirect()->route('order.index',$user);
-        }
+        $user = Auth::user();
+        $service->store($request, $user);
+        return redirect()->route('order.index', $user);
+    }
 
     /**
      * Вывод конкретной заявки.
@@ -57,8 +56,8 @@ class OrderController extends Controller {
      */
     public function show(Order $order) {
         $user = Auth::user();
-         $order = Order::find($order->id);
-        return view('order.show',compact('order','user'));
+        $order = Order::find($order->id);
+        return view('order.show', compact('order', 'user'));
     }
 
     /**
@@ -68,8 +67,8 @@ class OrderController extends Controller {
      * @return void
      */
     public function edit(Order $order) {
-         $user = Auth::user();
-        return view('order.form',compact('order','user'));
+        $user = Auth::user();
+        return view('order.form', compact('order', 'user'));
     }
 
     /**
@@ -80,9 +79,8 @@ class OrderController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(OrderRequest $request, Order $order, OrderService $service) {
-         // $user = Auth::user();
-        $service->update($request,$order);
-       return redirect()->route('order.index',$order);
+        $service->update($request, $order);
+        return redirect()->route('order.index', $order);
     }
 
     /**
@@ -93,7 +91,7 @@ class OrderController extends Controller {
      */
     public function destroy(Order $order) {
         $order->delete();
-         return redirect()->route('order.index');
+        return redirect()->route('order.index');
     }
 
 }

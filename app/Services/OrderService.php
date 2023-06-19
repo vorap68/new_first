@@ -9,7 +9,7 @@ use App\Models\Order;
 class OrderService extends Controller {
 
     /**
-     * Сохранить заявку в БД
+     * Сохранить новую заявку в БД
      * 
      * @param object $request
      * @param object $user
