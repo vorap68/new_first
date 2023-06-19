@@ -22,6 +22,7 @@ class OrderController extends Controller {
     public function index() {
         $user = Auth::user();
         $orders = $user->orders;
+        Order::lastOrderTime($orders);
         return view('order.index', compact('orders', 'user'));
     }
 

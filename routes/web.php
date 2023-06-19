@@ -27,3 +27,4 @@ Route::get('manager/index','App\Http\Controllers\ManagerController@index')->name
 Route::post('manager/active/{order}','App\Http\Controllers\ManagerController@active')->name('manager.active');
 
 
+    
